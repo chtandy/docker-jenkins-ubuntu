@@ -4,6 +4,7 @@ services:
     build:
       context: ./
     container_name: jenkins
+    hostname: jenkins
     environment:
       #JAVA_OPTS: "-Xmx512m -Xms512m"
       JAVA_OPTS: "-Djava.awt.headless=true"
