@@ -12,8 +12,8 @@ services:
       - '8090:8080'
       - '5000:5000'
     volumes:
-      # mkdir -p ./data/jenkins_home ./data/ansible-data  && chmod 777  ./data/jenkins_home && umask 0002
+      # mkdir -p ./data/jenkins_home ./data/data  && chmod 777  ./data/jenkins_home && umask 0002
       - ./data/jenkins_home:/var/jenkins_home
-      - ./data/ansible-data:/etc/ansible
+      - ./data/data:/data
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker 
