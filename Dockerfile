@@ -1,7 +1,5 @@
 FROM ubuntu:16.04
-RUN apt-get update && apt-get install default-jre default-jdk sudo vim netcat -y
-
-RUN apt-get update && apt-get upgrade -y && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade && apt-get install default-jre default-jdk sudo vim netcat git curl -y
 
 ARG user=jenkins
 ARG group=jenkins
