@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-RUN apt-get update && apt-get install default-jre default-jdk sudo -y
+RUN apt-get update && apt-get install default-jre default-jdk sudo vim netcat -y
 
 RUN apt-get update && apt-get upgrade -y && apt-get install -y git curl && rm -rf /var/lib/apt/lists/*
 
@@ -75,6 +75,14 @@ EXPOSE ${http_port}
 EXPOSE ${agent_port}
 
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
+
+# clean apt install
+RUN rm -rf /var/lib/apt/lists/* && apt-get clean
+
+# set /etc/ssh/ssh_config
+RUN echo "Host *" >> /etc/ssh/ssh_config && \
+    echo "    StrictHostKeyChecking no" >> /etc/ssh/ssh_config && \
+    echo "    UserKnownHostsFile /dev/null" >> /etc/ssh/ssh_config
 
 USER ${user}
 
