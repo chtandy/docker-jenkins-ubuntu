@@ -8,3 +8,4 @@ sudo chown jenkins:jenkins .docker
 - 之後每次登入container 用jenkins身份執行`source ~/.bashrc`
 
 - jenkins job 第一行加入`source ~/.bashrc`
+- jenkins job 有關docker 命令都需要用`sudo docker`
